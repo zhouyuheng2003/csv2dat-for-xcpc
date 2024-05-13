@@ -11,3 +11,13 @@
 ## 使用方法
 
 在程序内配置程序的参数后运行即可。
+
+参考文档：
+
+[About Codeforces and Polygon functionality,ATSTNG,2024.5.12](https://codeforces.com/blog/entry/124035)
+
+修改日志：
+
+2024.5.13：修正罚时的处理逻辑，将贡献的WA提交改为尽可能晚的提交，并增加提示。
+
+2024.5.12：第一个版本完成

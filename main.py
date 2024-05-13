@@ -47,7 +47,7 @@ def parse_csv_with_comma_count(file_path):
                             X = int(token[1:])
                             for j in range(0,X):
                                 char_to_int_map[problemchar]+=1
-                                submissions.append(f"@s {teamid},{problemchar},{char_to_int_map[problemchar]},{j},WA")
+                                submissions.append(f"@s {teamid},{problemchar},{char_to_int_map[problemchar]},{contestLength*60-j-1},WA")
                     elif token.startswith('+'):
                         if '|' in token:
                             parts = token[1:].split('|')  # 分割token
@@ -56,7 +56,9 @@ def parse_csv_with_comma_count(file_path):
                                 Y = int(parts[1])
                                 for j in range(0,X):
                                     char_to_int_map[problemchar]+=1
-                                    submissions.append(f"@s {teamid},{problemchar},{char_to_int_map[problemchar]},{j},WA")
+                                    submissions.append(f"@s {teamid},{problemchar},{char_to_int_map[problemchar]},{Y*60-j-1},WA")
+                                    if(Y*60-j-1<0):
+                                        print("警告，罚时处理异常")
                                 char_to_int_map[problemchar]+=1
                                 submissions.append(f"@s {teamid},{problemchar},{char_to_int_map[problemchar]},{Y*60},OK")
                     elif token.isdigit():
